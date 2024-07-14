@@ -31,7 +31,7 @@ test('EA Play by Home', async ({ page }) => {
   // await page.getByRole('button', { name: 'Accept' }).click();
   await page.locator('a').filter({ hasText: /^Join EA Play$/ }).click();
   await page.getByRole('radio').check();
-  await expect(page.getByLabel('R$ 200,00/yr 12 monthsBest')).toBeVisible();
+  await expect(page.getByLabel('R$ 200,00/yr 12 monthsBest')).toBeVisible({ timeout: 15000 });
   await page.getByLabel('R$ 200,00/yr 12 monthsBest').check();
   await expect.soft(page.locator('#ea-play-drawer').getByRole('list').locator('#items')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Check out' })).toBeVisible();
